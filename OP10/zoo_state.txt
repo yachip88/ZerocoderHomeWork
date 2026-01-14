@@ -1,0 +1,6 @@
+Bird,Polly,2
+Mammal,Simba,5
+Reptile,Kaa,3
+---
+ZooKeeper,Alice
+Veterinarian,Bob
