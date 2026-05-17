@@ -1,0 +1,195 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boiler Module UI Concepts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="hero__eyebrow">Boilerhouses + Transition Cards</p>
+      <h1>Three Visual Concepts for the Module</h1>
+      <p>
+        Sample cards are rendered with fake data. The class structure is intentionally clean so you can map
+        your existing data model directly to these blocks.
+      </p>
+    </header>
+
+    <section class="concept concept--industrial">
+      <div class="concept__header">
+        <h2>Concept A: Industrial Control Grid</h2>
+        <p>Dense monitoring panel with contrast accents for operator speed.</p>
+      </div>
+
+      <div class="boiler-grid boiler-grid--a">
+        <article class="boiler-card boiler-card--ok">
+          <div class="boiler-card__row">
+            <h3>North-12</h3>
+            <span class="status-pill status-pill--ok">Stable</span>
+          </div>
+          <p class="boiler-card__meta">District 4 | Last update 16:42</p>
+          <dl>
+            <div><dt>Load</dt><dd>78%</dd></div>
+            <div><dt>Supply temp</dt><dd>84 C</dd></div>
+            <div><dt>Pressure</dt><dd>4.6 bar</dd></div>
+          </dl>
+          <a href="#" class="go-link">Open telemetry</a>
+        </article>
+
+        <article class="boiler-card boiler-card--warn">
+          <div class="boiler-card__row">
+            <h3>Riverbank-7</h3>
+            <span class="status-pill status-pill--warn">Attention</span>
+          </div>
+          <p class="boiler-card__meta">District 2 | Last update 16:39</p>
+          <dl>
+            <div><dt>Load</dt><dd>91%</dd></div>
+            <div><dt>Supply temp</dt><dd>89 C</dd></div>
+            <div><dt>Pressure</dt><dd>5.2 bar</dd></div>
+          </dl>
+          <a href="#" class="go-link">Open telemetry</a>
+        </article>
+
+        <article class="boiler-card boiler-card--maint">
+          <div class="boiler-card__row">
+            <h3>Atlas-3</h3>
+            <span class="status-pill status-pill--maint">Maintenance</span>
+          </div>
+          <p class="boiler-card__meta">District 8 | Last update 16:35</p>
+          <dl>
+            <div><dt>Load</dt><dd>0%</dd></div>
+            <div><dt>Supply temp</dt><dd>32 C</dd></div>
+            <div><dt>Pressure</dt><dd>0.8 bar</dd></div>
+          </dl>
+          <a href="#" class="go-link">Open work order</a>
+        </article>
+      </div>
+
+      <div class="jump-grid jump-grid--a">
+        <a class="jump-card" href="#">
+          <strong>Incident Journal</strong>
+          <span>Current alarms and acknowledgment history</span>
+        </a>
+        <a class="jump-card" href="#">
+          <strong>Flow Scheme</strong>
+          <span>Visual topology with current branch load</span>
+        </a>
+        <a class="jump-card" href="#">
+          <strong>Shift Summary</strong>
+          <span>Daily KPIs for dispatch handover</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="concept concept--glass">
+      <div class="concept__header">
+        <h2>Concept B: Glass Tiles</h2>
+        <p>Light dashboard direction with larger typography and low visual stress.</p>
+      </div>
+
+      <div class="boiler-grid boiler-grid--b">
+        <article class="boiler-tile">
+          <div>
+            <p class="boiler-tile__name">Central Loop-1</p>
+            <p class="boiler-tile__area">Old Town Sector</p>
+          </div>
+          <div class="boiler-tile__stats">
+            <span>62% load</span>
+            <span>81 C</span>
+            <span>4.1 bar</span>
+          </div>
+          <a href="#">Go to object</a>
+        </article>
+
+        <article class="boiler-tile">
+          <div>
+            <p class="boiler-tile__name">Harbor-9</p>
+            <p class="boiler-tile__area">West Industrial Zone</p>
+          </div>
+          <div class="boiler-tile__stats">
+            <span>74% load</span>
+            <span>86 C</span>
+            <span>4.8 bar</span>
+          </div>
+          <a href="#">Go to object</a>
+        </article>
+      </div>
+
+      <div class="jump-grid jump-grid--b">
+        <a class="jump-tile" href="#">
+          <strong>Consumption Forecast</strong>
+          <span>Hourly demand projection by district</span>
+        </a>
+        <a class="jump-tile" href="#">
+          <strong>Maintenance Planner</strong>
+          <span>Upcoming windows, teams, and spare parts</span>
+        </a>
+        <a class="jump-tile" href="#">
+          <strong>Heat Loss Map</strong>
+          <span>Network segments with anomaly risk scoring</span>
+        </a>
+        <a class="jump-tile" href="#">
+          <strong>Energy Costs</strong>
+          <span>Fuel and electricity cost trend by site</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="concept concept--timeline">
+      <div class="concept__header">
+        <h2>Concept C: Route Timeline Cards</h2>
+        <p>Each boilerhouse is part of a process route with clear next actions.</p>
+      </div>
+
+      <div class="route-list">
+        <article class="route-card">
+          <header>
+            <h3>South Ring-5</h3>
+            <span class="badge">Priority P2</span>
+          </header>
+          <p>Current route: Diagnostics -> Valve tuning -> Efficiency check</p>
+          <div class="route-card__progress"><span style="width: 58%"></span></div>
+          <div class="route-card__links">
+            <a href="#">Open checklist</a>
+            <a href="#">Open history</a>
+            <a href="#">Assign engineer</a>
+          </div>
+        </article>
+
+        <article class="route-card">
+          <header>
+            <h3>Metro Hub-2</h3>
+            <span class="badge badge--high">Priority P1</span>
+          </header>
+          <p>Current route: Alarm review -> Pump balancing -> Thermal test</p>
+          <div class="route-card__progress"><span style="width: 82%"></span></div>
+          <div class="route-card__links">
+            <a href="#">Open checklist</a>
+            <a href="#">Open history</a>
+            <a href="#">Assign engineer</a>
+          </div>
+        </article>
+
+        <article class="route-card">
+          <header>
+            <h3>Station East-11</h3>
+            <span class="badge">Priority P3</span>
+          </header>
+          <p>Current route: Sensor audit -> Seal replacement -> Restart prep</p>
+          <div class="route-card__progress"><span style="width: 36%"></span></div>
+          <div class="route-card__links">
+            <a href="#">Open checklist</a>
+            <a href="#">Open history</a>
+            <a href="#">Assign engineer</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
