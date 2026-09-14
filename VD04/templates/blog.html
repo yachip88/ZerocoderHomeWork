@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Блог</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('index') }}">Главная</a>
+    <a href="{{ url_for('blog') }}">Блог</a>
+    <a href="{{ url_for('contacts') }}">Контакты</a>
+  </nav>
+  <h1>Блог</h1>
+  <p>Первая запись: собрал меню через url_for, чтобы ссылки работали из Flask.</p>
+</body>
+</html>

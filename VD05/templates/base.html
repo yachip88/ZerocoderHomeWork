@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Сайт{% endblock %}</title>
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('home') }}">Главная</a>
+    <a href="{{ url_for('about') }}">О проекте</a>
+  </nav>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>Jinja-шаблон base.html</footer>
+</body>
+</html>

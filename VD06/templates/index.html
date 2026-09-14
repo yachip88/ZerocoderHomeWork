@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Анкета</title>
+</head>
+<body>
+  <h1>Анкета</h1>
+  <form method="post">
+    <p>Имя: <input type="text" name="name" required></p>
+    <p>Город: <input type="text" name="city" required></p>
+    <p>Хобби: <input type="text" name="hobby" required></p>
+    <p>Возраст: <input type="number" name="age" required></p>
+    <button type="submit">Отправить</button>
+  </form>
+  <h2>Введённые данные</h2>
+  {% for person in people %}
+    <p>{{ person.name }}, {{ person.age }}, {{ person.city }}, {{ person.hobby }}</p>
+  {% else %}
+    <p>Пока пусто.</p>
+  {% endfor %}
+</body>
+</html>

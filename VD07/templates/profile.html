@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Профиль</title>
+</head>
+<body>
+  <h1>Редактирование профиля</h1>
+  <form method="post">
+    <p>Имя: <input type="text" name="name" value="{{ user.name }}" required></p>
+    <p>Почта: <input type="email" name="email" value="{{ user.email }}" required></p>
+    <p>Новый пароль: <input type="password" name="password"></p>
+    <button type="submit">Сохранить</button>
+  </form>
+  <p><a href="{{ url_for('logout') }}">Выйти</a></p>
+</body>
+</html>
