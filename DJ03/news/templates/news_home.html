@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+</head>
+<body>
+    <h1>Все новости</h1>
+    {% for item in news %}
+        <article>
+            <h2>{{ item.title }}</h2>
+            <p><b>Автор:</b> {{ item.author }}</p>
+            <p><b>Дата:</b> {{ item.pub_date }}</p>
+            <p><b>Кратко:</b> {{ item.short_description }}</p>
+            <p>{{ item.text }}</p>
+        </article>
+        <hr>
+    {% empty %}
+        <p>Новостей пока нет. Добавьте их в админке.</p>
+    {% endfor %}
+</body>
+</html>

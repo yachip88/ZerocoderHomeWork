@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить фильм</title>
+</head>
+<body>
+    <h1>Добавить фильм</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+    <p><a href="{% url 'film_list' %}">Список фильмов</a></p>
+</body>
+</html>

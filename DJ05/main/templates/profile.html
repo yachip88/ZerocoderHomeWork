@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+</head>
+<body>
+    <h1>Профиль</h1>
+    <p>Страница только для авторизованных пользователей.</p>
+    <p>Пользователь: {{ user.username }}</p>
+    <p><a href="{% url 'index' %}">На главную</a></p>
+</body>
+</html>
