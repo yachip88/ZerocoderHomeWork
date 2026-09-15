@@ -1,0 +1,3 @@
+# Сторонние пакеты не используются.
+# GUI: tkinter (стандартная библиотека Python 3.10+)
+# Остальное: json, random, pathlib, dataclasses
