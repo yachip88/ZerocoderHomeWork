@@ -10,7 +10,7 @@ from game_logic import (
     PRIZES,
     GameState,
     format_money,
-    load_questions,
+    start_new_game,
 )
 
 BG = "#071433"
@@ -35,6 +35,7 @@ class MillionaireApp:
         self.state: GameState | None = None
         self.answer_buttons: list[tk.Button] = []
         self.ladder_labels: list[tk.Label] = []
+        self.audience_window: tk.Toplevel | None = None
         self._build()
         self.show_menu()
 
@@ -51,6 +52,7 @@ class MillionaireApp:
             frame.pack_forget()
 
     def show_menu(self) -> None:
+        self._close_audience_window()
         self._hide_all()
         self.menu_frame.pack(fill="both", expand=True)
 
@@ -216,8 +218,24 @@ class MillionaireApp:
         self._menu_button(box, "Сыграть ещё раз", self.start_game).pack(pady=8)
         self._menu_button(box, "В меню", self.show_menu).pack(pady=8)
 
+    def _close_audience_window(self) -> None:
+        win = self.audience_window
+        self.audience_window = None
+        if win is None:
+            return
+        try:
+            win.destroy()
+        except tk.TclError:
+            pass
+
     def start_game(self) -> None:
-        self.state = GameState(questions=load_questions())
+        self._close_audience_window()
+        try:
+            state = start_new_game()
+        except (OSError, ValueError) as exc:
+            messagebox.showerror("Ошибка загрузки вопросов", str(exc))
+            return
+        self.state = state
         self._hide_all()
         self.game_frame.pack(fill="both", expand=True)
         self.refresh_board()
@@ -256,6 +274,7 @@ class MillionaireApp:
         state = self.state
         if state is None or state.finished:
             return
+        self._close_audience_window()
         correct = state.current.correct
         ok = state.answer(option_index)
         if ok and not state.finished:
@@ -267,10 +286,12 @@ class MillionaireApp:
             return
         # Подсветка своего и верного вариантов перед окном поражения.
         self.answer_buttons[option_index].config(bg=WRONG)
-        self.answer_buttons[correct].config(bg=CORRECT, state="normal")
+        if 0 <= correct < len(self.answer_buttons):
+            self.answer_buttons[correct].config(bg=CORRECT, state="normal")
         self.root.after(700, lambda: self.show_result(False, state.prize))
 
     def show_result(self, won: bool, prize: int) -> None:
+        self._close_audience_window()
         self._hide_all()
         self.result_frame.pack(fill="both", expand=True)
         if won:
@@ -304,10 +325,13 @@ class MillionaireApp:
         votes = self.state.use_audience()
         if not votes:
             return
+        self._close_audience_window()
         win = tk.Toplevel(self.root)
+        self.audience_window = win
         win.title("Помощь зала")
         win.configure(bg=BG)
         win.geometry("420x280")
+        win.protocol("WM_DELETE_WINDOW", self._close_audience_window)
         tk.Label(
             win,
             text="Голосование зала",
